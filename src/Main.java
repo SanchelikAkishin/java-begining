@@ -13,14 +13,16 @@
 Результатом работы калькулятора с римскими числами могут быть только положительные числа, если результат работы меньше единицы, выбрасывается исключение
  */
 
-import java.io.IOException;
+// Сделал три варианта . Многое не получилось . Не судите строго . Пользовался Гуглом!!!!
+///
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите два числа (Арабские или Римские)");
-        String expression = scanner.nextLine();
+        String expression = scanner.next();
         System.out.println(count(expression));
     }
 
@@ -33,7 +35,6 @@ public class Main {
         String[] operands = expression.split("[+\\-*/]");
         if (operands.length != 2) throw new Exception("Должно быть 2 операции");
         oper = detectOperation(expression);
-        if (oper == null) throw new Exception("Нет такой операции");
         if (Roman.isRoman(operands[0]) && Roman.isRoman(operands[1])) {
             number = Roman.conToArabian(operands[0]);
             number1 = Roman.conToArabian(operands[1]);
@@ -89,16 +90,18 @@ class Roman {
 
     public static boolean isRoman(String val) {
         for (int i = 0; i < romanArray.length; i++) {
-            if (val.equals(romanArray[i])) ;
-            return true;
+            if (val.equals(romanArray[i])) {
+                return true;
+            }
         }
         return false;
     }
 
     public static int conToArabian(String roman) {
         for (int i = 0; i < romanArray.length; i++) {
-            if (roman.equals(romanArray[i])) ;
-            return i;
+            if (roman.equals(romanArray[i])) {
+                return i;
+            }
         }
         return -1;
     }
