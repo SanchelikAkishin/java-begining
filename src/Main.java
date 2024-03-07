@@ -16,7 +16,6 @@
 // Сделал три варианта . Многое не получилось . Не судите строго . Пользовался Гуглом!!!!
 ///
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
